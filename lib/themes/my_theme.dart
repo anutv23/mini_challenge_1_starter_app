@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme with ChangeNotifier {
   var _themeType = ThemeType.Light;
@@ -29,11 +30,72 @@ class MyTheme with ChangeNotifier {
   ThemeData get currentThemeData {
     switch (themeType) {
       case ThemeType.Light:
-        return ThemeData();
+        return ThemeData(
+            scaffoldBackgroundColor: Colors.yellow[50],
+            primaryColor: Colors.amberAccent,
+            accentColor: Colors.amber,
+            appBarTheme: AppBarTheme(
+              centerTitle: true,
+              backgroundColor: Colors.yellow[50],
+              textTheme: TextTheme(
+                  headline6: TextStyle(
+                          letterSpacing: 4,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Pacifico')
+                      .apply(
+                color: Colors.black54,
+              )),
+            ),
+            textTheme: TextTheme(
+                headline3:
+                    TextStyle(letterSpacing: 3).apply(color: Color(0xffF2960B)),
+                subtitle1: TextStyle().apply(color: Colors.brown),
+                bodyText1: TextStyle(wordSpacing: 4).apply(
+                  color: Colors.black54,
+                )));
       case ThemeType.Dark:
-        return ThemeData();
+        return ThemeData(
+            scaffoldBackgroundColor: Colors.blueGrey[300],
+            accentColor: Colors.blue,
+            appBarTheme: AppBarTheme(
+              centerTitle: true,
+              backgroundColor: Colors.black,
+              textTheme: TextTheme(
+                  headline6: TextStyle(
+                letterSpacing: 4,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ).apply(
+                color: Colors.grey,
+              )),
+            ),
+            textTheme: TextTheme(
+                headline3: TextStyle(
+                  fontFamily: 'Pacifico',
+                        fontSize: 50,
+
+                        letterSpacing: 3)
+                    .apply(color: Colors.white),
+                subtitle1: TextStyle(fontSize: 18).apply(color: Colors.white),
+                bodyText1: TextStyle(wordSpacing: 2, fontSize: 15).apply(
+                  color: Colors.orange[50],
+                )));
       case ThemeType.Other:
-        return ThemeData();
+        return ThemeData(
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            backgroundColor: Colors.brown,
+            textTheme: TextTheme(
+                headline6: TextStyle(
+              letterSpacing: 4,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ).apply(
+              color: Colors.white,
+            )),
+          ),
+        );
     }
   }
 }
